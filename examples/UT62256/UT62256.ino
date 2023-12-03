@@ -3,17 +3,18 @@ pin 37-39 for CE,OE,WE
 pin 40-47 for IO(1-8)
 pin 22-36 for addr(1-15)
 can't be changed.
-2023.11, Jimmy Zhang
+
+2023.11 Jimmy Zhang
 */
 
 #include "UT62256.h"
 
-#define DATA_SIZE 5000
-#define TEST_LEN 32768
+#define DATA_SIZE 5000//data array size for check
+#define TEST_LEN 32768//number of test byte for UT62256,max 32768
 
-uint8_t dataReg = 0;
+uint8_t dataReg = 0;//register for the reading data, use for compare 
 uint8_t data[DATA_SIZE];
-uint8_t count = 0;
+uint8_t count = 0;//counter for test cycles
 UT62256 ut = UT62256();
 
 void setup() {
